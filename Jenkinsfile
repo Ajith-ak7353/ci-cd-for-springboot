@@ -1,14 +1,7 @@
 
 pipeline {
-    agent {
-        label 'slave'
-    }
-
-    environment {
-        IMAGE_NAME      = "springboot-ci-cd"
-        CONTAINER_COUNT = 1
-    }
-
+    agent any
+    
     triggers {
         githubPush()
     }
