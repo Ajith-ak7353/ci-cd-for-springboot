@@ -8,5 +8,5 @@ services:
     image: springboot-ci-cd
     container_name: springboot-app
     ports:
-      - "9090:9090"
+      - "9000:9090"
 
