@@ -1,0 +1,12 @@
+
+
+services:
+  springboot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: springboot-ci-cd
+    container_name: springboot-app
+    ports:
+      - "9090:9090"
+
