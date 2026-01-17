@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                     mvn -version
-                    mvn clean package -DskipTests
+                    mvn clean package
                 '''
             }
         }
@@ -33,14 +33,28 @@ pipeline {
                 '''
             }
         }
+	stage("docker push"){
+      steps{
+         script
+               {
+          // This step should not normally be used in your script. Consult the inline help for details.
+withDockerRegistry(credentialsId: '1f864436-96dd-415c-bd9e-16208f04229f', url: 'https://index.docker.io/v1/') {
+    sh ''' docker push ajith7353/springcicd:latest '''
+}
+}
+}
+}
     }
+
+
+
 
     post {
         success {
-            echo "✅ Pipeline executed successfully"
+            echo "Pipeline executed successfully"
         }
         failure {
-            echo "❌ Pipeline failed"
+            echo "Pipeline failed"
         }
     }
 }
