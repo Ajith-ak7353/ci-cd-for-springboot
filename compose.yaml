@@ -6,6 +6,5 @@ services:
       context: .
       dockerfile: Dockerfile
     image: springboot-ci-cd:latest
-    container_name: springboot-ci-cd
     ports:
       - "9090:9090"
