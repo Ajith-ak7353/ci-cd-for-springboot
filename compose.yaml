@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: springboot-ci-cd
-    container_name: springboot-app
+    image: springboot-ci-cd:$build_number
+    container_name: springboot-ci-cd:$build_number
     ports:
       - "9090:9090"
 
