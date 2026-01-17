@@ -26,7 +26,11 @@ pipeline {
         stage(' Docker compose') {
             steps {
                 sh '''
-                    docker-compose up
+                    sh '''
+  docker compose down --volumes --remove-orphans || true
+  docker system prune -f
+  docker compose up -d --build
+
                 '''
             }
         }
