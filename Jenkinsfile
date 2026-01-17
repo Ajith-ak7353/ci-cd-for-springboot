@@ -25,7 +25,6 @@ pipeline {
 
         stage(' Docker compose') {
             steps {
-                sh '''
                     sh '''
   docker compose down --volumes --remove-orphans || true
   docker system prune -f
